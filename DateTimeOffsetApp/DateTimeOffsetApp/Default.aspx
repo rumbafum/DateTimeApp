@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="DateTimeOffsetApp.Default" %>
 
+<%@ Register Assembly="DevExpress.Web.v14.2, Version=14.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Namespace="DevExpress.Web" TagPrefix="dx" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -24,7 +26,11 @@
     <asp:Button ID="OKButton" runat="server" Text="Button"  
             OnClientClick="AddDateInformation()" onclick="OKButton_Click" />
     <asp:HiddenField ID="DateInfo"  Value=""  runat="server" />
+
+    <dx:ASPxDateEdit ID="ASPxDateEdit1" runat="server" EditFormat="Custom" EditFormatString="dd-MM-yyyy hh:mm:ss tt"></dx:ASPxDateEdit>
+    <dx:ASPxTimeEdit ID="timeEdit" runat="server"></dx:ASPxTimeEdit>
     <br />
+
     </div>
     <script type="text/javascript">
 

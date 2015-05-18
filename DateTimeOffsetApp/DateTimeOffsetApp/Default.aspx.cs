@@ -15,7 +15,8 @@ namespace DateTimeOffsetApp
         protected void Page_Load(object sender, EventArgs e)
         {
             dt = DateTime.Now;
-            dt = DateTime.SpecifyKind(dt, DateTimeKind.Unspecified);
+            dt = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
+            ASPxDateEdit1.Value = DateTime.Now;
         }
 
         public string GetClientOffset()
