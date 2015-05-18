@@ -15,7 +15,7 @@ namespace DateTimeOffsetApp
         protected void Page_Load(object sender, EventArgs e)
         {
             dt = DateTime.Now;
-            dt = DateTime.SpecifyKind(dt, DateTimeKind.Local);
+            dt = DateTime.SpecifyKind(dt, DateTimeKind.Unspecified);
         }
 
         public string GetClientOffset()
