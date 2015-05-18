@@ -10,7 +10,7 @@
 <body>
     <form id="DateForm" runat="server">
     <div>
-        <span><%= DateTime.Now.ToLocalTime() %></span>
+        <span><%= new DateTime(2015, 5, 18, 16, 11, 0, DateTimeKind.Local) %></span>
         <br />
         <span><%= DateTimeOffset.Now.ToLocalTime() %></span>
         <br />

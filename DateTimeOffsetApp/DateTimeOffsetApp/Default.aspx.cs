@@ -13,7 +13,7 @@ namespace DateTimeOffsetApp
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            DateTime t = new DateTime(2015, 5, 18, 16, 11, 0, DateTimeKind.Local);
         }
 
         public string GetClientOffset()
