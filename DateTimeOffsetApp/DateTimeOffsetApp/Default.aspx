@@ -19,16 +19,9 @@
     <div style="width:1px;height:20px">
     </div>
     <div>
-    <center>
-       <asp:Label ID="Label1" runat="server" Text="Enter a Date and Time:" Width="248px"></asp:Label>
-       <asp:TextBox ID="DateString" runat="server" Width="176px"></asp:TextBox><br />
-    </center>       
-    <br />
-    <center>
     <asp:Button ID="OKButton" runat="server" Text="Button"  
             OnClientClick="AddDateInformation()" onclick="OKButton_Click" />
     <asp:HiddenField ID="DateInfo"  Value=""  runat="server" />
-    </center>
     <br />
     </div>
     <script type="text/javascript">

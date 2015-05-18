@@ -26,14 +26,10 @@ namespace DateTimeOffsetApp
             string locale = "";
             DateTimeStyles styles = DateTimeStyles.AllowInnerWhite | DateTimeStyles.AllowLeadingWhite |
                                            DateTimeStyles.AllowTrailingWhite;
-            DateTime inputDate;
             DateTime localDate = DateTime.Now;
             DateTimeOffset localDateOffset = DateTimeOffset.Now;
             int integerOffset;
             bool result = false;
-
-            // Exit if input is absent.
-            //if (string.IsNullOrEmpty(this.DateString.Text)) return;
 
             // Hide form elements.
             this.DateForm.Visible = false;
@@ -49,10 +45,10 @@ namespace DateTimeOffsetApp
 
                     // Remove quality specifier, if present.
                     if (locale.Contains(";"))
-                        locale = locale.Substring(locale.IndexOf(';') - 1);
+                        locale = locale.Substring(0, locale.IndexOf(';'));
                     try
                     {
-                        cultures[ctr] = new CultureInfo(Request.UserLanguages[ctr], false);
+                        cultures[ctr] = new CultureInfo(locale, false);
                     }
                     catch (Exception) { }
                 }
@@ -62,25 +58,6 @@ namespace DateTimeOffsetApp
                 }
             }
             cultures[Request.UserLanguages.Length] = CultureInfo.InvariantCulture;
-            // Parse input using each culture.
-            //foreach (CultureInfo culture in cultures)
-            //{
-            //    result = DateTime.TryParse(this.DateString.Text, culture.DateTimeFormat, styles, out inputDate);
-            //    if (result) break;
-            //}
-            //// Display result to user.
-            //if (result)
-            //{
-            //    Response.Write("<P />");
-            //    Response.Write("The date you input was " + Server.HtmlEncode(this.DateString.Text) + "<BR />");
-            //}
-            //else
-            //{
-            //    // Unhide form.
-            //    this.DateForm.Visible = true;
-            //    Response.Write("<P />");
-            //    Response.Write("Unable to recognize " + Server.HtmlEncode(this.DateString.Text) + ".<BR />");
-            //}
 
             // Get date and time information from hidden field.
             string[] dates = Request.Form["DateInfo"].Split(';');
@@ -88,7 +65,7 @@ namespace DateTimeOffsetApp
             // Parse local date using each culture.
             foreach (CultureInfo culture in cultures)
             {
-                result = DateTime.TryParse(dates[0], culture.DateTimeFormat, styles, out localDate);
+                result = DateTime.TryParse(dates[0], culture, styles, out localDate);
                 if (result) break;
             }
             // Parse offset 
