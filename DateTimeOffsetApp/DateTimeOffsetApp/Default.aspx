@@ -10,6 +10,8 @@
     <form id="form1" runat="server">
     <div>
         <span><%= DateTime.Now.ToLocalTime() %></span>
+        <br />
+        <span><%= DateTimeOffset.Now.ToLocalTime() %></span>
     </div>
     </form>
 </body>
