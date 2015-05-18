@@ -14,7 +14,7 @@
         <br />
         <span><%= DateTimeOffset.Now.ToLocalTime() %></span>
         <br />
-        <span><%= TimeZone.CurrentTimeZone.ToLocalTime(DateTime.UtcNow) %></span>
+        <span><%= dt %></span>
         <br />
         <span class="clientOffset"></span>
     </div>

@@ -10,10 +10,12 @@ namespace DateTimeOffsetApp
 {
     public partial class Default : System.Web.UI.Page
     {
+        public DateTime dt;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            DateTime t = new DateTime(2015, 5, 18, 16, 11, 0, DateTimeKind.Local);
+            dt = DateTime.Now;
+            dt = DateTime.SpecifyKind(dt, DateTimeKind.Local);
         }
 
         public string GetClientOffset()
