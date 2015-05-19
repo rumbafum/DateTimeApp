@@ -16,8 +16,8 @@ namespace DateTimeOffsetApp
         {
             dt = DateTimeOffset.UtcNow;
             var dispDt = dt.ToLocalTime();
-            var dtString = dispDt.ToString(@"o");
-            ASPxDateEdit1.Value = dtString;
+            //var dtString = dispDt.ToString(@"o");
+            //ASPxDateEdit1.Value = dtString;
         }
 
         public string GetClientOffset()
@@ -27,6 +27,12 @@ namespace DateTimeOffsetApp
 
         protected void OKButton_Click(object sender, EventArgs e)
         {
+
+            DateTimeOffset off = new DateTimeOffset(ASPxDateEdit1.Date);
+
+            Response.Write("<P />");
+            Response.Write("ASPxDateEdit DateTimeOffset: " + off.ToString() + ".<BR />");
+
             string locale = "";
             DateTimeStyles styles = DateTimeStyles.AllowInnerWhite | DateTimeStyles.AllowLeadingWhite |
                                            DateTimeStyles.AllowTrailingWhite;

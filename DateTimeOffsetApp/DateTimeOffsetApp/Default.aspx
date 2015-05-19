@@ -30,7 +30,9 @@
             OnClientClick="AddDateInformation()" onclick="OKButton_Click" />
     <asp:HiddenField ID="DateInfo"  Value=""  runat="server" />
 
-    <dx:ASPxDateEdit ID="ASPxDateEdit1" runat="server" EditFormat="Custom" EditFormatString="dd-MM-yyyy hh:mm:ss tt">
+    <dx:ASPxDateEdit ID="ASPxDateEdit1" runat="server">
+        <TimeSectionProperties Visible="true">
+        </TimeSectionProperties>
         <ClientSideEvents DateChanged="function(s,e){ console.log(s); }" />
     </dx:ASPxDateEdit>
     <dx:ASPxTimeEdit ID="timeEdit" runat="server">
