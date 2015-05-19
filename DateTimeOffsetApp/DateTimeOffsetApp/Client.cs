@@ -16,5 +16,7 @@ namespace DateTimeOffsetApp
                 return TimeZoneInfo.ConvertTime(DateTimeOffset.Now, tzi);
             } 
         }
+
+        public static DateTimeOffset ClientMomentDate { get; set; }
     }
 }

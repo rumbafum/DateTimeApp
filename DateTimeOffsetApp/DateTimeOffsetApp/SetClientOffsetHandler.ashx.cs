@@ -14,7 +14,9 @@ namespace DateTimeOffsetApp
         public void ProcessRequest(HttpContext context)
         {
             string offset = context.Request["offset"];
+            string momentDate = HttpUtility.HtmlDecode(context.Request["momentDate"]);
             Client.ClientOffset = Convert.ToInt16(offset);
+            Client.ClientMomentDate = DateTimeOffset.Parse(momentDate);
             context.Response.ContentType = "text/plain";
             context.Response.Write("");
         }

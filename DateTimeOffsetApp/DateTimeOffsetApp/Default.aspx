@@ -8,6 +8,7 @@
 <head runat="server">
     <title></title>
     <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="Scripts/moment.js"></script>
 </head>
 <body>
     <form id="DateForm" runat="server">
@@ -19,6 +20,8 @@
         <span><%= dt %></span>
         <br />
         <span class="clientOffset"></span>
+        <br />
+        <span class="momentClientDateTime"></span>
     </div>
     <div style="width:1px;height:20px">
     </div>
@@ -35,17 +38,22 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
+            setDates(moment().format());
+            
+        });
+
+        function setDates(moment) {
             var offset = (new Date().getTimezoneOffset() / 60) * (-1);
             $.ajax({
                 url: 'SetClientOffsetHandler.ashx',
-                data: 'offset=' + offset,
+                data: 'offset=' + offset + '&momentDate=' + encodeURIComponent(moment),
                 type: 'POST',
                 success: function (resp) {
                     $('.clientOffset').text('<%= GetClientOffset() %>');
+                    $('.momentClientDateTime').text('Moment: <%= DateTimeOffsetApp.Client.ClientMomentDate %>')
                 }
             });
-
-        });
+        }
 
     </script>
     </form>

@@ -77,6 +77,7 @@
     <Content Include="lib\DevExpress.Printing.v14.2.Core.dll" />
     <Content Include="lib\DevExpress.RichEdit.v14.2.Core.dll" />
     <Content Include="lib\DevExpress.Web.v14.2.dll" />
+    <Content Include="Scripts\moment.js" />
     <Content Include="SetClientOffsetHandler.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

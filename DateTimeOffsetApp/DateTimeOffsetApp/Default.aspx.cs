@@ -10,14 +10,13 @@ namespace DateTimeOffsetApp
 {
     public partial class Default : System.Web.UI.Page
     {
-        public DateTime dt;
+        public DateTimeOffset dt;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            dt = DateTime.Now;
-            dt = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
+            dt = DateTimeOffset.UtcNow;
             var dispDt = dt.ToLocalTime();
-            var dtString = dispDt.ToString(@"dd/MM/yyyy HH:mm:ss tt");
+            var dtString = dispDt.ToString(@"o");
             ASPxDateEdit1.Value = dtString;
         }
 
@@ -31,7 +30,7 @@ namespace DateTimeOffsetApp
             string locale = "";
             DateTimeStyles styles = DateTimeStyles.AllowInnerWhite | DateTimeStyles.AllowLeadingWhite |
                                            DateTimeStyles.AllowTrailingWhite;
-            DateTime localDate = DateTime.Now;
+            DateTime localDate = DateTimeOffset.UtcNow.UtcDateTime;
             DateTimeOffset localDateOffset = DateTimeOffset.Now;
             int integerOffset;
             bool result = false;
@@ -71,6 +70,7 @@ namespace DateTimeOffsetApp
             foreach (CultureInfo culture in cultures)
             {
                 result = DateTime.TryParse(dates[0], culture, styles, out localDate);
+                //result = DateTime.TryParse(dates[0], culture, styles, out localDate);
                 if (result) break;
             }
             // Parse offset 
