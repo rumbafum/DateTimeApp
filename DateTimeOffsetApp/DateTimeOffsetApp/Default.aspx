@@ -49,7 +49,7 @@
         });
 
         function setDates(moment) {
-            var offset = (new Date().getTimezoneOffset() / 60) * (-1);
+            var offset = (new Date().getTimezoneOffset());
             $.ajax({
                 url: 'SetClientOffsetHandler.ashx',
                 data: 'offset=' + offset + '&momentDate=' + encodeURIComponent(moment),

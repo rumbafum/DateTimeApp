@@ -30,8 +30,12 @@ namespace DateTimeOffsetApp
 
             DateTimeOffset off = new DateTimeOffset(ASPxDateEdit1.Date);
 
+            DateTimeOffset clientDate = new DateTimeOffset(TimeZoneInfo.ConvertTimeToUtc(ASPxDateEdit1.Date, TimeZoneInfo.Local));
+            clientDate = new DateTimeOffset(ASPxDateEdit1.Date, new TimeSpan(0, -Client.ClientOffset, 0));
+            
             Response.Write("<P />");
             Response.Write("ASPxDateEdit DateTimeOffset: " + off.ToString() + ".<BR />");
+            Response.Write("ASPxDateEdit Transformed DateTimeOffset: " + clientDate.ToString() + ".<BR />");
 
             string locale = "";
             DateTimeStyles styles = DateTimeStyles.AllowInnerWhite | DateTimeStyles.AllowLeadingWhite |
